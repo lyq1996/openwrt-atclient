@@ -8,9 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=atclient
-PKG_VERSION:=1.0.1
-PKG_RELEASE:=2
-PKG_REV:=3291849
+PKG_VERSION:=2.0.0
+PKG_RELEASE:=1
+PKG_REV:=249c959
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-r$(PKG_REV).tar.bz2
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
@@ -27,18 +27,6 @@ define Package/atclient
   SECTION:=utils
   CATEGORY:=Utilities
   TITLE:=A 3-party ANTENG BAS client
-endef
-
-define Build/Configure
-	cd $(PKG_BUILD_DIR) && sh ./configure
-	$(call Build/Configure/Default)
-endef
-
-define Build/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR) \
-		HOSTCC="$(HOSTCC)" \
-		DESTDIR="$(PKG_INSTALL_DIR)" \
-		all
 endef
 
 define Package/atclient/install
